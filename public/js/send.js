@@ -28,7 +28,13 @@ area.onkeydown = function(e){
 }
 
 function showItem(data) {
-    var str = "<div class=sentarea><div class=sentence>&nbsp;&nbsp;";
+    var str = "";
+    if (data['special']){
+        str += "<div class=sentarea_sp>";
+    }else{
+        str += "<div class=sentarea>";
+    }
+    str += "<div class=sentence>&nbsp;&nbsp;";
     str += data['text'];
     str += "</div><div class=date>";
     str += getLocalTime(data['_t']);

@@ -9,7 +9,11 @@
 <!-- 显示最近几条句子 -->
 <?php
 foreach($sentences as $sentence) {
-    echo "<div class=sentarea>";
+    if ($sentence->special){
+        echo "<div class=sentarea_sp>";
+    }else{
+        echo "<div class=sentarea>";
+    }
     echo "<div class=sentence>&nbsp;&nbsp;";
     echo $sentence->text;
     echo "</div>";

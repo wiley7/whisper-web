@@ -43,6 +43,11 @@ input {
     margin-bottom: 5px;
     border-radius: 5px;
 }
+.sentarea_sp {
+    background-color: #375;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
 .sentence {
     padding: 10px 0px 0px 0px;
     margin-left: 5px;

@@ -19,8 +19,13 @@ class IndexController extends Phalcon\Mvc\Controller {
         if (!isset($_REQUEST['text'])){
             die("text is empty");
         }
-        $sentence->text = $_REQUEST['text'];
+        $text = $_REQUEST['text'];
+        if ("sp " == substr($text, 0, 3)){
+            $text    = substr($text, 3);
+            $sentence->special = 1;
+        }
         $sentence->_t   = $now;
+        $sentence->text = $text;
         if ($sentence->save() == false) {
             echo "Umh, We can't store sentence right now: \n";
             foreach ($sentence->getMessages() as $message) {
@@ -28,8 +33,9 @@ class IndexController extends Phalcon\Mvc\Controller {
             }   
         } else {
             echo json_encode(array(
-                'text'=>$_REQUEST['text'],
-                '_t'  =>$now,
+                'text'    => $text,
+                '_t'      => $now,
+                'special' => $sentence->special,
             ));
         }   
     }
