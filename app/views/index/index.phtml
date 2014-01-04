@@ -1,0 +1,19 @@
+<?php use Phalcon\Tag; ?>
+<html>
+<head>
+<?php echo Tag::stylesheetLink("public/css/style.css");?>
+</head>
+<body>
+<div class=show>
+<!-- 显示最近几条句子 -->
+</div>
+<div class=input>
+<?php echo Tag::textArea(array(
+    "text",
+)); ?>
+</form>
+</div>
+<?php echo Tag::javascriptInclude("public/js/send.js");?>
+</body>
+</html>
+
