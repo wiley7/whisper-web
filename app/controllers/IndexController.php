@@ -7,7 +7,7 @@ class IndexController extends Phalcon\Mvc\Controller {
             array(
                 array(),
                 "sort"  => array("_t" => -1),
-                'limit' => 5,
+                'limit' => 8,
             )
         ));
         $this->view->setVar('sentences', $sentences);

@@ -5,6 +5,8 @@
 <?php echo Tag::javascriptInclude("public/js/jquery.min.js");?>
 </head>
 <body>
+<br/>
+<br/>
 <div class=show>
 <!-- 显示最近几条句子 -->
 <?php
@@ -24,6 +26,7 @@ foreach($sentences as $sentence) {
 }
 ?>
 </div>
+<br/>
 <br/>
 <div class=input>
 <?php echo Tag::textArea(array(
