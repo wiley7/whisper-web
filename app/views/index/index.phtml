@@ -2,11 +2,25 @@
 <html>
 <head>
 <?php echo Tag::stylesheetLink("public/css/style.css");?>
+<?php echo Tag::javascriptInclude("public/js/jquery.min.js");?>
 </head>
 <body>
 <div class=show>
 <!-- 显示最近几条句子 -->
+<?php
+foreach($sentences as $sentence) {
+    echo "<div class=sentarea>";
+    echo "<div class=sentence>&nbsp;&nbsp;";
+    echo $sentence->text;
+    echo "</div>";
+    echo "<div class=date>";
+    echo date("Y/m/d H:i:s", $sentence->_t);
+    echo "</div>";
+    echo "</div>";
+}
+?>
 </div>
+<br/>
 <div class=input>
 <?php echo Tag::textArea(array(
     "text",

@@ -9,9 +9,6 @@ try {
 		array(
 		    __DIR__ . $config->application->controllersDir,
 		    __DIR__ . $config->application->modelsDir,
-		    __DIR__ . $config->application->componentsDir,
-		    __DIR__ . $config->application->pluginsDir,
-		    __DIR__ . $config->application->cashiersDir,
 		)
 	)->register();
 

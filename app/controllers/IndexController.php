@@ -3,7 +3,14 @@
 class IndexController extends Phalcon\Mvc\Controller {
 
 	public function indexAction() {
-        $sentences = Sentences::find();
+        $sentences = array_reverse(Sentences::find(
+            array(
+                array(),
+                "sort"  => array("_t" => -1),
+                'limit' => 5,
+            )
+        ));
+        $this->view->setVar('sentences', $sentences);
 	}
 
     public function submitAction() {
@@ -20,10 +27,10 @@ class IndexController extends Phalcon\Mvc\Controller {
                 echo $message, "\n";
             }   
         } else {
-            return array(
+            echo json_encode(array(
                 'text'=>$_REQUEST['text'],
                 '_t'  =>$now,
-            );
+            ));
         }   
     }
 }
