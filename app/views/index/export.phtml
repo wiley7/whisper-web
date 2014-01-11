@@ -1,0 +1,23 @@
+<?php     
+header('Content-Description: File Transfer');
+header('Content-Type: application/octet-stream');
+header('Content-Disposition: attachment; filename=sentences.csv');
+header('Content-Transfer-Encoding: binary');
+header('Expires: 0');
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+header('Pragma: public');
+ob_clean();
+flush();
+$fp=fopen('php://output', 'w');
+foreach($sentences as $sen){
+    $row = array(
+        $sen->_id,
+        iconv('UTF-8','GBK',$sen->text),
+        $sen->_t,
+        $sen->special,
+    );
+    fputcsv($fp, $row);
+}
+fclose($fp);
+?>    
+

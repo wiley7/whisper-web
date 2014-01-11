@@ -33,6 +33,15 @@ input {
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+.showlist {
+    color: #ddd;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 .input {
     height: 80px;
     width: 50%;
@@ -41,19 +50,20 @@ input {
 }
 .sentarea {
     background-color: #357;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border-radius: 5px;
 }
 .sentarea_sp {
     background-color: #375;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border-radius: 5px;
 }
 .sentence {
     font-family: 'lucida grande', 'Tahoma', '宋体';
     padding: 10px 0px 0px 0px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    padding-top: 10px;
+    margin-right: 10px;
     font-size: 16px;
     line-height: 1.5;
     text-align: left;
@@ -64,4 +74,24 @@ input {
     padding: 0px 10px 5px 0px;
     text-align: right;
     font-size: 5px;
+}
+.mv-del {
+    -webkit-transition:opacity 500ms ease-in-out;
+    opacity: 0;
+    position: absolute;
+    background:transparent url(../img/del.png);
+    width:16px;
+    height:16px;
+    cursor:default;
+    border:none;
+}
+
+.mv-del:hover {
+    background:transparent url(../img/del_hover.png);
+}
+
+.sentarea:hover .sentarea_sp:hover .mv-del {
+    -webkit-transition-delay: 500ms;
+    opacity:1;
+    background-color: #fff;
 }

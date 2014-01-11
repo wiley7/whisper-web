@@ -1,0 +1,26 @@
+<?php use Phalcon\Tag; ?>
+<?php
+foreach($sentences as $sentence) {
+    if ($sentence->special){
+        echo "<div class=sentarea_sp>";
+    }else{
+        echo "<div class=sentarea>";
+    }
+    echo "<div class=sentence>&nbsp;&nbsp;";
+    echo $sentence->text;
+    echo "</div>";
+    echo "<div class=date>";
+    echo date("Y年m月d日 H:i", $sentence->_t);
+    if ($editable){
+        echo "<input type=hidden name=id value=";
+        echo $sentence->_id;
+        echo " />";
+    }
+    echo "</div>";
+    if ($editable){
+        echo "<div class=mv-del title=删除此条></div>";
+    }
+    echo "</div>";
+}
+?>
+
