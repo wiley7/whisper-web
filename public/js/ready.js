@@ -9,14 +9,17 @@ function refreshShow() {
 
 function showItem(data) {
     var str = "";
-    if (data['special']){
-        str += "<div class=sentarea_sp>";
+    if (data['tag']){
+        str += "<div class=sentarea_" + data['tag'] + ">";
     }else{
         str += "<div class=sentarea>";
     }
     str += "<div class=sentence>&nbsp;&nbsp;";
     str += data['text'];
     str += "</div><div class=date>";
+    if (data['tag']) {
+        str +=  "tag: " + data['tag'] + "&nbsp&nbsp&nbsp&nbsp";
+    }
     str += getLocalTime(data['_t']);
     str += "</div></div>";
     $(".show").html($(".show").html() + str);

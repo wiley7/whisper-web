@@ -1,8 +1,8 @@
 <?php use Phalcon\Tag; ?>
 <?php
 foreach($sentences as $sentence) {
-    if ($sentence->special){
-        echo "<div class=sentarea_sp>";
+    if ($sentence->tag){
+        echo "<div class=sentarea_{$sentence->tag}>";
     }else{
         echo "<div class=sentarea>";
     }
@@ -10,6 +10,9 @@ foreach($sentences as $sentence) {
     echo $sentence->text;
     echo "</div>";
     echo "<div class=date>";
+    if ($sentence->tag)  {
+        echo "tag: " . $sentence->tag . "&nbsp&nbsp&nbsp&nbsp";
+    }
     echo date("Y年m月d日 H:i", $sentence->_t);
     if ($editable){
         echo "<input type=hidden name=id value=";

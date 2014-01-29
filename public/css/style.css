@@ -53,8 +53,13 @@ input {
     margin-bottom: 10px;
     border-radius: 5px;
 }
-.sentarea_sp {
+.sentarea_work {
     background-color: #375;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.sentarea_think {
+    background-color: #377;
     margin-bottom: 10px;
     border-radius: 5px;
 }
@@ -90,7 +95,7 @@ input {
     background:transparent url(../img/del_hover.png);
 }
 
-.sentarea:hover .sentarea_sp:hover .mv-del {
+.sentarea:hover .sentarea_work:hover .sentarea_think:hover .mv-del {
     -webkit-transition-delay: 500ms;
     opacity:1;
     background-color: #fff;

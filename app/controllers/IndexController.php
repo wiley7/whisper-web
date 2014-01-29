@@ -15,16 +15,18 @@ class IndexController extends Phalcon\Mvc\Controller {
 	}
 
     public function submitAction() {
-        $now = $_SERVER['REQUEST_TIME'];
+        $now      = $_SERVER['REQUEST_TIME'];
         $sentence = new Sentences();
         if (!isset($_REQUEST['text'])){
             die("text is empty");
         }
         $text = $_REQUEST['text'];
-        if ("sp " == substr($text, 0, 3)){
-            $text    = substr($text, 3);
-            $sentence->special = 1;
-        }
+        // 增加tag，不仅sp这一个 从开始到第一个空格，少于20个字符表示一个tag
+        if (($idx = strpos($text, ' ')) && $idx > 0 && $idx <= 20) {
+            $sentence->tag = substr($text, 0, $idx);
+            $text    = substr($text, $idx + 1);
+        } 
+
         $sentence->_t   = $now;
         $sentence->text = $text;
         if ($sentence->save() == false) {
@@ -36,7 +38,7 @@ class IndexController extends Phalcon\Mvc\Controller {
             echo json_encode(array(
                 'text'    => $text,
                 '_t'      => $now,
-                'special' => $sentence->special,
+                'tag' => $sentence->tag,
                 'id'      => $sentence->_id,
             ));
         }   
