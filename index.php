@@ -20,16 +20,6 @@ try {
 		return $router;
 	});
 
-	//Set the database service
-	$di->set('db', function() use ($config) {
-		return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
-		    "host" => $config->mysql->host,
-		    "username" => $config->mysql->username,
-		    "password" => $config->mysql->password,
-		    "dbname" => $config->mysql->name,
-		));
-	});
-
     //Set the mongo service
     $di->set('mongo', function() use ($config) {
         $mongo = new Mongo($config->mongo->cstr);
