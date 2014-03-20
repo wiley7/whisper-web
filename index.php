@@ -1,4 +1,20 @@
 <?php
+$noauth = true;
+if($_SERVER['PHP_AUTH_USER']=='icyleaf' && $_SERVER['PHP_AUTH_PW']=='kakawei'){
+    $noauth = false;
+}
+if ($noauth){
+    header("WWW-Authenticate: Basic realm=\"Login\"");
+    header("HTTP/1.0 401 Unauthorized");
+    echo <<<EOB
+                <html><body>
+                <h1>拒绝访问!</h1>
+            <big><a href='$PHP_SELF'>登录</a></big>
+                </body></html>
+EOB;
+    exit;
+}
+
 
 try {
 	$config = new Phalcon\Config\Adapter\Ini(__DIR__ . '/app/config/config.ini');
