@@ -63,6 +63,12 @@ input {
     margin-bottom: 10px;
     border-radius: 5px;
 }
+
+.sentarea_blog {
+    background-color: #353;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
 .sentence {
     font-family: 'lucida grande', 'Tahoma', '宋体';
     padding: 10px 0px 0px 0px;
@@ -95,8 +101,7 @@ input {
     background:transparent url(../img/del_hover.png);
 }
 
-.sentarea:hover .sentarea_work:hover .sentarea_think:hover .mv-del {
+.sentarea:hover .mv-del, .sentarea_work:hover .mv-del, .sentarea_think:hover .mv-del, .sentarea_blog:hover .mv-del {
     -webkit-transition-delay: 500ms;
     opacity:1;
-    background-color: #fff;
 }
